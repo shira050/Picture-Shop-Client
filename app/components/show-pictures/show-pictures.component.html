@@ -1,0 +1,12 @@
+<div class="text-center">  
+<div class="col-mb-8" class="card" style="width: 22rem" *ngFor="let x of p" [ngStyle]="{'float':'right','textAlign':'center','margin':'20px 20px'}">
+    <img  src="http://localhost:9207/images/{{x.image}}"  class="card-img-top" alt={{x.namePicture}}>
+    <div class="card-body">
+      <h5 class="card-title">{{x.namePicture}}</h5>
+      <p class="card-text">מחיר:{{x.price}}</p>
+      <button *ngIf="this.manneger==true" style="color:red" (click)="delete(x.codePicture)">מחק</button>
+      <button [routerLink]="['/onePicture',x.codePicture]" type="button" class="btn btn-default">פרטים נוספים </button>
+      <button *ngIf="this.manneger==true" [routerLink]="['/newPic',x.codePicture]" type="button" class="btn btn-default">עדכן</button>
+
+    </div>
+  </div></div>

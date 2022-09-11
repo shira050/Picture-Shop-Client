@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  direction: rtl;
+  margin: 0;
+  font-size: 28px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+  background-color: #f1f1f1;
+  padding: 30px;
+  text-align: center;
+}
+
+#navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+#navbar a {
+  float: right;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+#navbar a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h2 class="h">תמונות לביית</h2>
+  <a [routerLink]="['/sign']">עדיין לא חבר אצלנו ? הירשם עכשיו! </a>
+</div>
+
+<div id="navbar" style="direction: rtl;">
+ 
+ 
+ 
+  <a routerLinkActive="active" [routerLink]="['home']" class="active" >דף הביית</a>
+  <a routerLinkActive="active" [routerLink]="['/Pictures',num]" >כל המוצרים</a>
+  <a routerLinkActive="active" [routerLink]="['/kategory']" >צפה במוצרים לפי קטגוריות</a>
+  <a *ngIf="menneger==false" class="dropdown-item" routerLinkActive="active" [routerLink]="['/menneger']">כנס כמנהל</a>
+  <a *ngIf="user.passwordUser" routerLinkActive="active" [routerLink]="['/basket']" >סל הקניות שלי</a>
+  <a *ngIf="user.passwordUser&&menneger"  routerLinkActive="active" [routerLink]="['/users']" >רשימת החברים</a>
+  <a *ngIf="user.codeUser==0" routerLinkActive="active" [routerLink]="['/sign_in']" >התחבר </a>
+  <a *ngIf="user.codeUser==0" routerLinkActive="active" [routerLink]="['/sign',n,p]" >הרשם </a>
+  <a *ngIf="user.passwordUser&&menneger" routerLinkActive="active" [routerLink]="['/newC',num]" >הוסף קטגוריה חדשה </a>
+  <a *ngIf="user.passwordUser&&menneger" routerLinkActive="active" [routerLink]="['/newPic']" >הוסף מוצר חדש </a>
+
+
+  <a *ngIf="user.passwordUser" routerLinkActive="active" [routerLink]="['/sign',user.nameUser,user.passwordUser]"> עדכן פרטיך אצלנו</a>
+
+
+ 
+</div>
+
+
+
+<script>
+window.onscroll = function() {myFunction()};
+
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
+
+</body>
+</html>

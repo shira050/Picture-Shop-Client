@@ -1,0 +1,42 @@
+<h1 class="text-center">הוספת לקוח</h1>
+<form (ngSubmit)="addCustomer()" class="fclass" action="/action_page.php" #myForm="ngForm">
+
+    <div class="form-group">
+        <label for="text">הכנס שם</label>
+        <input type="text" class="form-control" id="i1" name="nameCustomer" [(ngModel)]="newCustomer.nameUser"  #myName="ngModel" required pattern="[A-Za-zא-ת]*">
+    </div>
+    <div *ngIf="myName.invalid &&(myName.dirty || myName.touched)">
+        <div class="alert-danger" *ngIf="myName.errors.pattern"> השדה חייב להכיל אותיות בלבד</div>
+        <div class="alert-danger" *ngIf="myName.errors.required">שדה חובה</div>
+    </div>
+     <div class="form-group">
+        <label for="pwd">הכנס סיסמא</label>
+        <input type="password" class="form-control" id="i2" name="passwordCustomer"
+            [(ngModel)]="newCustomer.passwordUser" #myPassword="ngModel" minlength="5" required>
+    </div>
+  <div *ngIf="myPassword.invalid &&(myPassword.dirty || myPassword.touched)">
+        <div class="alert-danger" *ngIf="myPassword.errors.minlength">מספר התווים חייב לכלול 5 ספרות</div>
+        <div class="alert-danger" *ngIf="myPassword.errors.required">שדה חובה</div>
+    </div>
+          <div class="form-group">
+            <label for="text">הכנס אימייל</label>
+            <input type="text" class="form-control" id="email" name="EmailCustomer" [(ngModel)]="newCustomer.emailUser" #myEmail="ngModel" required pattern="^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$">
+        </div>
+       <div *ngIf="myEmail.invalid &&(myEmail.dirty || myEmail.touched)">
+            <!-- <div class="alert-danger" *ngIf="myEmail.errors.pattern ">אימייל לא תקין</div> -->
+            <div class="alert-danger" *ngIf="myEmail.errors.required">שדה חובה</div>
+        </div>
+
+
+        <div class="checkbox">
+            <label><input type="checkbox"> זכור אותי</label>
+        </div>
+        <button type="button" value="reset" (click)="myForm.reset()" class="btn btn-default">נקה</button>
+
+        <button *ngIf="newCustomer.passwordUser==null"  type="submit" class="btn btn-default" >הוסף</button>
+        <button *ngIf="newCustomer.passwordUser!=null" type="submit" class="btn btn-default" >עדכן</button>
+
+        <!-- </div> -->
+</form>
+<!-- [disabled]="myForm.form.invalid" -->
+

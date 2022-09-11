@@ -1,0 +1,18 @@
+<h1 class="text-center"> התחברות</h1>
+<form (ngSubmit)="getCustomer()" class="fclass" action="/action_page.php">
+  <div class="form-group">
+    <label for="text"> הכנס שם</label>
+    <input type="text" class="form-control" id="id" name="idCustomer" [(ngModel)]="name">
+  </div>
+    <div class="form-group">
+      <label for="pwd">הכנס סיסמא</label>
+      <input type="password" class="form-control" id="pwd" name="passwordCustomer" [(ngModel)]="password">
+    </div>
+    <div class="form-group">
+        <label for="pwd">הכנס סיסמת מנהל</label>
+        <input type="password" class="form-control" id="pwdM" name="passwordM" [(ngModel)]="passwordM">
+      </div>
+     
+    <button type="submit" class="btn btn-default" >התחבר</button>
+  </form>
+ 

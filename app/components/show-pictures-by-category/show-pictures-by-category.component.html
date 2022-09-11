@@ -1,0 +1,32 @@
+<!-- <div *ngFor="let x of c" class="card border-primary mb-3" style="max-width: 18rem;">
+    <div class="card-header">{{x.nameCategory}}</div>
+    <div class="card-body text-primary">
+    <a [routerLink]="['/Pictures',x.codeCategory]" class="btn btn-primary">פרטים נוספים</a>
+ 
+    </div>
+  </div> -->
+
+   <!--Section: Content-->
+   <section class="text-center" >
+
+
+      <div class="col-mb-4" *ngFor="let x of c" style="margin-top: 20px;">
+        <div class="card" >
+          <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+            <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid" />
+            <a href="#!">
+              <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+            </a>
+          </div>
+          <div class="card-body">
+            <h2 class="card-title">{{x.nameCategory}}</h2>
+            <p class="card-text">
+              Some quick example text to build on the card title and make up the bulk of the
+              card's content.
+            </p>
+            <a [routerLink]="['/Pictures',x.codeCategory]" class="btn btn-primary">פרטים נוספים</a>
+       <button *ngIf="manneger==true" (click)="delete(x.codeCategory)" style="color:red ;">מחק</button>
+      <button *ngIf="manneger==true" > <a routerLinkActive="active" [routerLink]="['/newC',x.codeCategory]" >עדכן קטגוריה  </a>
+  </button>
+      </div>
+        </div>

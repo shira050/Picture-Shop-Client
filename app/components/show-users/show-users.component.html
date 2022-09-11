@@ -1,0 +1,20 @@
+<table class="table table-dark" style="direction: rtl">
+    <thead>
+      <tr>
+        <th>מחק משתמש</th>
+        <th>קוד משתמש</th>
+        <th>שם משתמש</th>
+        <th>סיסמא</th>
+        <th>מייל משתשמש</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let x of users">
+        <td><button (click)="delete(x.codeUser)"> X</button></td>
+        <td>{{x.codeUser}}</td>
+        <td>{{x.nameUser}}</td>
+        <td>{{x.passwordUser}}</td>
+        <td>{{x.emailUser}}</td>
+      </tr>
+      </tbody>
+    </table>

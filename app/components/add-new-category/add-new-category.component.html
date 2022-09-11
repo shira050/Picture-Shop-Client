@@ -1,0 +1,22 @@
+<h1 class="text-center">הוספת קטגוריה</h1>
+<form (ngSubmit)="addCategory()" class="fclass" action="/action_page.php" #myForm="ngForm">
+
+    <div class="form-group">
+        <label for="text">הכנס שם</label>
+        <input type="text" class="form-control" id="i1" name="nameCustomer" [(ngModel)]="newCategory.nameCategory"  #myName="ngModel" required pattern="[A-Za-zא-ת]*">
+    </div>
+    <div *ngIf="myName.invalid &&(myName.dirty || myName.touched)">
+        <div class="alert-danger" *ngIf="myName.errors.pattern"> השדה חייב להכיל אותיות בלבד</div>
+        <div class="alert-danger" *ngIf="myName.errors.required">שדה חובה</div>
+    </div>
+   
+
+     
+        <button type="button" value="reset" (click)="myForm.reset()" class="btn btn-default">נקה</button>
+
+        <button *ngIf="id==0" type="submit" class="btn btn-default" >הוסף</button>
+
+        <button *ngIf="id>0" type="submit" class="btn btn-default" >עדכן</button>
+        <!-- </div> -->
+</form>
+<!-- [disabled]="myForm.form.invalid" -->
